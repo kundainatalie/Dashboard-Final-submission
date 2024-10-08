@@ -421,6 +421,7 @@ def render_org_page(org):
             className="d-flex justify-content-center"
             ),
             dbc.Col(width=3)
+
         ], className="mb-4 justify-content-center"),
         html.Div(id='selected-data', style={'display': 'none'}),
     ])
