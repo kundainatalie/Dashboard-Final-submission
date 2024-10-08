@@ -1,0 +1,72 @@
+{
+    "sheet_name": "Mr Price Group Ltd",
+    "accuracy": 0.9117647058823529,
+    "classification_report": {
+        "HIGH": {
+            "precision": 0.8421052631578947,
+            "recall": 1.0,
+            "f1-score": 0.9142857142857143,
+            "support": 16.0
+        },
+        "LOW": {
+            "precision": 1.0,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.9090909090909091,
+            "support": 18.0
+        },
+        "accuracy": 0.9117647058823529,
+        "macro avg": {
+            "precision": 0.9210526315789473,
+            "recall": 0.9166666666666667,
+            "f1-score": 0.9116883116883117,
+            "support": 34.0
+        },
+        "weighted avg": {
+            "precision": 0.9256965944272446,
+            "recall": 0.9117647058823529,
+            "f1-score": 0.9115355233002292,
+            "support": 34.0
+        }
+    },
+    "best_params": {
+        "class_weight": {
+            "0": 1,
+            "1": 0.9444444444444444
+        },
+        "criterion": "gini",
+        "max_depth": 2,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2
+    },
+    "feature_importance": {
+        "CurrentRatio": 0.0,
+        "ReturnOnEquity": 1.0,
+        "ProfitMargin": 0.0
+    },
+    "tree_structure": {
+        "name": "Node 0",
+        "feature": "ReturnOnEquity",
+        "threshold": 19.81999969482422,
+        "left": {
+            "name": "Leaf 1",
+            "value": [
+                0.0,
+                1.0
+            ],
+            "class": "LOW",
+            "samples": 1
+        },
+        "right": {
+            "name": "Leaf 2",
+            "value": [
+                0.5142857142857142,
+                0.4857142857142856
+            ],
+            "class": "HIGH",
+            "samples": 0
+        },
+        "samples": 1
+    },
+    "max_depth": 2,
+    "pruned": true
+}

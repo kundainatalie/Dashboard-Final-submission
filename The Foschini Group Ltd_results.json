@@ -1,0 +1,87 @@
+{
+    "sheet_name": "The Foschini Group Ltd",
+    "accuracy": 0.8823529411764706,
+    "classification_report": {
+        "HIGH": {
+            "precision": 0.8461538461538461,
+            "recall": 1.0,
+            "f1-score": 0.9166666666666666,
+            "support": 22.0
+        },
+        "LOW": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1-score": 0.8,
+            "support": 12.0
+        },
+        "accuracy": 0.8823529411764706,
+        "macro avg": {
+            "precision": 0.9230769230769231,
+            "recall": 0.8333333333333333,
+            "f1-score": 0.8583333333333334,
+            "support": 34.0
+        },
+        "weighted avg": {
+            "precision": 0.9004524886877828,
+            "recall": 0.8823529411764706,
+            "f1-score": 0.8754901960784314,
+            "support": 34.0
+        }
+    },
+    "best_params": {
+        "class_weight": {
+            "0": 1,
+            "1": 1.4166666666666667
+        },
+        "criterion": "gini",
+        "max_depth": 2,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2
+    },
+    "feature_importance": {
+        "CurrentRatio": 0.2664005696873721,
+        "InflationAdjustedROE": 0.733599430312628,
+        "OperatingProfitMargin": 0.0
+    },
+    "tree_structure": {
+        "name": "Node 0",
+        "feature": "ReturnOnEquity",
+        "threshold": 15.259999752044678,
+        "left": {
+            "name": "Node 1",
+            "feature": "CurrentRatio",
+            "threshold": 2.2300000190734863,
+            "left": {
+                "name": "Leaf 2",
+                "value": [
+                    0.5853658536585366,
+                    0.4146341463414634
+                ],
+                "class": "HIGH",
+                "samples": 1
+            },
+            "right": {
+                "name": "Leaf 3",
+                "value": [
+                    0.0,
+                    1.0
+                ],
+                "class": "LOW",
+                "samples": 1
+            },
+            "samples": 0
+        },
+        "right": {
+            "name": "Leaf 4",
+            "value": [
+                1.0,
+                0.0
+            ],
+            "class": "HIGH",
+            "samples": 1
+        },
+        "samples": 0
+    },
+    "max_depth": 2,
+    "pruned": true
+}
