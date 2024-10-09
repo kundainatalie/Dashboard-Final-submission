@@ -7,6 +7,7 @@ import dash_bootstrap_components as dbc
 import json
 from dash.exceptions import PreventUpdate
 import logging
+import os
 from decision_tree import *
 
 
@@ -23,6 +24,7 @@ dfs = {sheet: pd.read_excel(excel_file, sheet_name=sheet) for sheet in sheet_nam
 # Create the Dash app with a theme
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True,
                 assets_folder='assets')
+server = app.server
 
 org_order = ["African Overseas Enterprises", "Mr Price Group Ltd", "Rex Trueform Group Ltd", "The Foschini Group Ltd",
              "Truworths International Ltd"]
@@ -464,9 +466,6 @@ def update_decision_table(selected_org):
     if not selected_org:
         return html.Div("Select an organization to view its decision table")
 
-    if selected_org not in decision_tree_results:
-        return html.Div(f"No decision logic data found for {selected_org}")
-
     org_data = decision_tree_results[selected_org]
     tree_structure = org_data['tree_structure']
 
@@ -881,5 +880,6 @@ def update_graphs(json_data):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run_server(debug=False, host='0.0.0.0', port=port)
 
