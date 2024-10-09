@@ -25,7 +25,7 @@ dfs = {sheet: pd.read_excel(excel_file, sheet_name=sheet) for sheet in sheet_nam
 
 # Create the Dash app with a theme
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True,
-                assets_folder='assets')
+                assets_folder='Assets')
 server = app.server
 
 org_order = ["African Overseas Enterprises", "Mr Price Group Ltd", "Rex Trueform Group Ltd", "The Foschini Group Ltd",
