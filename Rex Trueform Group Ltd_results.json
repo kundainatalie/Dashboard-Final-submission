@@ -1,0 +1,87 @@
+{
+    "sheet_name": "Rex Trueform Group Ltd",
+    "accuracy": 0.8823529411764706,
+    "classification_report": {
+        "HIGH": {
+            "precision": 0.5555555555555556,
+            "recall": 1.0,
+            "f1-score": 0.7142857142857143,
+            "support": 5.0
+        },
+        "LOW": {
+            "precision": 1.0,
+            "recall": 0.8620689655172413,
+            "f1-score": 0.9259259259259259,
+            "support": 29.0
+        },
+        "accuracy": 0.8823529411764706,
+        "macro avg": {
+            "precision": 0.7777777777777778,
+            "recall": 0.9310344827586207,
+            "f1-score": 0.8201058201058201,
+            "support": 34.0
+        },
+        "weighted avg": {
+            "precision": 0.934640522875817,
+            "recall": 0.8823529411764706,
+            "f1-score": 0.8948023653906008,
+            "support": 34.0
+        }
+    },
+    "best_params": {
+        "class_weight": {
+            "0": 1,
+            "1": 0.5862068965517241
+        },
+        "criterion": "gini",
+        "max_depth": 2,
+        "min_samples_leaf": 1,
+        "min_samples_split": 10
+    },
+    "feature_importance": {
+        "CurrentRatio": 0.2503234709466327,
+        "ReturnOnEquity": 0.0,
+        "ProfitMargin": 0.7496765290533672
+    },
+    "tree_structure": {
+        "name": "Node 0",
+        "feature": "ProfitMargin",
+        "threshold": 7.755000114440918,
+        "left": {
+            "name": "Node 1",
+            "feature": "CurrentRatio",
+            "threshold": 5.645000219345093,
+            "left": {
+                "name": "Leaf 2",
+                "value": [
+                    0.0,
+                    1.0
+                ],
+                "class": "LOW",
+                "samples": 1
+            },
+            "right": {
+                "name": "Leaf 3",
+                "value": [
+                    0.6304347826086957,
+                    0.3695652173913043
+                ],
+                "class": "HIGH",
+                "samples": 1
+            },
+            "samples": 0
+        },
+        "right": {
+            "name": "Leaf 4",
+            "value": [
+                0.6946107784431137,
+                0.3053892215568862
+            ],
+            "class": "HIGH",
+            "samples": 0
+        },
+        "samples": 1
+    },
+    "max_depth": 2,
+    "pruned": true
+}
