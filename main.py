@@ -877,7 +877,7 @@ def update_graphs(json_data):
     gauge_fig.update_layout(
         template='plotly_white',
         height=450,
-        margin=dict(t=0, b=20, l=20, r=20)  # Adjust top margin to give space for title
+        margin=dict(t=50, b=50, l=50, r=50)
     )
 
     return bar_fig, donut_fig, area_fig, line_fig, roa_card_content, nav_card_content, pe_card_content, gauge_fig
