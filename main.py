@@ -878,6 +878,7 @@ def update_graphs(json_data):
         template='plotly_white',
         height=450,
         margin=dict(t=50, b=50, l=50, r=50)
+
     )
 
     return bar_fig, donut_fig, area_fig, line_fig, roa_card_content, nav_card_content, pe_card_content, gauge_fig
