@@ -7,8 +7,8 @@ import dash_bootstrap_components as dbc
 import json
 from dash.exceptions import PreventUpdate
 import logging
-import os
 from decision_tree import *
+import openpyxl
 
 
 logging.basicConfig(level=logging.INFO)
@@ -24,7 +24,6 @@ dfs = {sheet: pd.read_excel(excel_file, sheet_name=sheet) for sheet in sheet_nam
 # Create the Dash app with a theme
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True,
                 assets_folder='assets')
-server = app.server
 
 org_order = ["African Overseas Enterprises", "Mr Price Group Ltd", "Rex Trueform Group Ltd", "The Foschini Group Ltd",
              "Truworths International Ltd"]
@@ -65,7 +64,7 @@ NAV_card = dbc.Card(
             ],
             id="NAV_det"),
         dbc.Tooltip([
-            "The industry average NAV/share is R 3312.96"
+            "The industry average NAV/share is R 3312.96."
         ], target="nav-value", placement="right", className="tooltip-custom"),
     ],
     className='text-center mx-2 value-cards',
@@ -84,7 +83,7 @@ PE_card = dbc.Card(
         dbc.Tooltip([
             "Price Earnings Ratio compares a company's share price to its Earnings per Share. A high P/E ratio shows "
             "operational efficiency and is an indication of a good investment. The industry average "
-            "Price Earnings ratio is R 411.82"
+            "Price Earnings ratio is R 411.82."
         ], target="PE_dets", placement="right", className="tooltip-custom"),
     ],
     className='text-center mx-2 value-cards',
@@ -166,16 +165,17 @@ def render_home_page():
                                     "African and Overseas Enterprises is a holding company that was founded "
                                     "in 1947 in Cape Town, South Africa. The organisation's primary business "
                                     "focus is in the clothing and fashion accessories retail. The group has "
-                                    "controlling interests in Rex Trueform Ltd which has an interest"
+                                    "controlling interests in Rex Trueform Ltd "
+                                    "which has an interest"
                                     " in Retail operations through Queenspark store, Property management, "
-                                    "Media and Broadcasting, water infrastructure and group services.",
+                                    "Media and Broadcasting, water infrastructure and group services. ",
                                     html.Span("It is the "
                                               "smallest organisation in the industry with a market cap of R 138.7 "
                                               "million.",
                                               style={"color": "#4B49AC", "font-weight": "bold"}),
 
                                 ],
-                                    className="card-text"),
+                                    className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 dbc.Button("View Details", id="btn-aoe", color="custom", className="mt-3")
                             ]
                         ),
@@ -195,13 +195,13 @@ def render_home_page():
                                 html.P([
                                     "Mr Price Group is a cash-based, omni-channel business that predominantly "
                                     "operates in the fashion retail space. The organisation operates in the "
-                                    "apparel, homeware, sportswear and telecoms segments through 2,900 stores.",
+                                    "apparel, homeware, sportswear and telecoms segments through 2,900 stores. ",
                                     html.Span("Mr "
                                               "Price Group Ltd is the largest organisation in the industry with a market "
                                               "cap of R 60.39 billion.",
                                               style={"color": "#4B49AC", "font-weight": "bold"}),
 
-                                ], className="card-text"),
+                                ],  className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 html.Br(),
                                 html.Br(),
                                 html.Br(),
@@ -231,7 +231,7 @@ def render_home_page():
                                         "The group has a market cap of R 232.85 million.",
                                         style={"color": "#4B49AC", "font-weight": "bold"}),
 
-                                ], className="card-text"),
+                                ],  className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 dbc.Button("View Details", id="btn-rex", color="custom", className="mt-3")
                             ]
                         ),
@@ -251,13 +251,13 @@ def render_home_page():
                                 html.P([
                                     "TFG is one of South Africa's chain-store groups with an internationally "
                                     "diverse portfolio consisting of 34 apparel and lifestyle retail brands "
-                                    "inclusive of Foschini, Jet, Sterns, American Swiss and @Home stores.",
+                                    "inclusive of Foschini, Jet, Sterns, American Swiss and @Home stores. ",
                                     html.Span("The group"
                                               "is the second largest in the industry with a market cap of R 46.13 "
                                               "billion.",
                                               style={"color": "#4B49AC", "font-weight": "bold"}),
 
-                                ], className="card-text"),
+                                ],  className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 dbc.Button("View Details", id="btn-tfg", color="custom", className="mt-3")
                             ]
                         ),
@@ -281,10 +281,10 @@ def render_home_page():
                                     "is a leading retailer of fashion clothing, footwear and homewear. The "
                                     "organisation was listed on the JSE in 1998. Truworths International brands "
                                     "and stores include Truworths, Truworths Man, Uzzi, Identity and Loads of "
-                                    "Living", html.Span("The group has a market cap of R 37.8 billion.",
+                                    "Living", html.Span(" The group has a market cap of R 37.8 billion.",
                                                         style={"color": "#4B49AC", "font-weight": "bold"}),
 
-                                ], className="card-text"),
+                                ],  className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 dbc.Button("View Details", id="btn-truworths", color="custom", className="mt-3")
                             ]
                         ),
@@ -383,8 +383,8 @@ def render_org_page(org):
                         ),
                         dbc.Tooltip([
                             "Current and Quick ratio show how liquid an organisation is, that is how quickly the "
-                            "organisation"
-                            "can convert assets into cash.", html.Span('The benchmark for Current Ratio is 1.95 and '
+                            "organisation "
+                            "can convert assets into cash.", html.Span(' The benchmark for Current Ratio is 1.95 and '
                                                                        '1.18 for Quick Ratio.',
                                                                        style={"color": "#4B49AC",
                                                                               "font-weight": "bold"})],
@@ -401,7 +401,7 @@ def render_org_page(org):
                         ),
                         dbc.Tooltip(
                             "ROE measures an organisation's financial performance by measuring how efficiently "
-                            "shareholders'"
+                            "shareholders' "
                             "equity was turned into Net Income. A higher ROE shows efficient use equity. The Industry Average ROE "
                             "is 10.94.", target="line_div", placement="right"),
                     ]), style={"backgroundColor": "#f8f9fa"}
@@ -422,7 +422,6 @@ def render_org_page(org):
                 ), width=6,
             className="d-flex justify-content-center"
             ),
-            dbc.Col(width=3)
 
         ], className="mb-4 justify-content-center"),
         html.Div(id='selected-data', style={'display': 'none'}),
@@ -465,6 +464,9 @@ def update_active_tab(btn_aoe, btn_mrp, btn_rex, btn_tfg, btn_truworths, current
 def update_decision_table(selected_org):
     if not selected_org:
         return html.Div("Select an organization to view its decision table")
+
+    if selected_org not in decision_tree_results:
+        return html.Div(f"No decision logic data found for {selected_org}")
 
     org_data = decision_tree_results[selected_org]
     tree_structure = org_data['tree_structure']
@@ -872,7 +874,8 @@ def update_graphs(json_data):
     gauge_fig.update_layout(
         template='plotly_white',
         height=450,
-        margin=dict(t=0, b=20, l=20, r=20)  # Adjust top margin to give space for title
+        margin=dict(t=50, b=50, l=50, r=50)
+        # Adjust top margin to give space for title
     )
 
     return bar_fig, donut_fig, area_fig, line_fig, roa_card_content, nav_card_content, pe_card_content, gauge_fig
@@ -880,6 +883,5 @@ def update_graphs(json_data):
 
 # Run the app
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run_server(debug=False, host='0.0.0.0', port=port)
+    app.run_server(debug=True)
 

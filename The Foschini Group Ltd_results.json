@@ -40,7 +40,7 @@
     },
     "feature_importance": {
         "CurrentRatio": 0.2664005696873721,
-        "InflationAdjustedROE": 0.733599430312628,
+        "ReturnOnEquity": 0.733599430312628,
         "OperatingProfitMargin": 0.0
     },
     "tree_structure": {
