@@ -168,16 +168,17 @@ def render_home_page():
                                     "African and Overseas Enterprises is a holding company that was founded "
                                     "in 1947 in Cape Town, South Africa. The organisation's primary business "
                                     "focus is in the clothing and fashion accessories retail. The group has "
-                                    "controlling interests in Rex Trueform Ltd which has an interest"
+                                    "controlling interests in Rex Trueform Ltd "
+                                    "which has an interest"
                                     " in Retail operations through Queenspark store, Property management, "
-                                    "Media and Broadcasting, water infrastructure and group services.",
+                                    "Media and Broadcasting, water infrastructure and group services. ",
                                     html.Span("It is the "
                                               "smallest organisation in the industry with a market cap of R 138.7 "
                                               "million.",
                                               style={"color": "#4B49AC", "font-weight": "bold"}),
 
                                 ],
-                                    className="card-text"),
+                                    className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 dbc.Button("View Details", id="btn-aoe", color="custom", className="mt-3")
                             ]
                         ),
@@ -197,13 +198,13 @@ def render_home_page():
                                 html.P([
                                     "Mr Price Group is a cash-based, omni-channel business that predominantly "
                                     "operates in the fashion retail space. The organisation operates in the "
-                                    "apparel, homeware, sportswear and telecoms segments through 2,900 stores.",
+                                    "apparel, homeware, sportswear and telecoms segments through 2,900 stores. ",
                                     html.Span("Mr "
                                               "Price Group Ltd is the largest organisation in the industry with a market "
                                               "cap of R 60.39 billion.",
                                               style={"color": "#4B49AC", "font-weight": "bold"}),
 
-                                ], className="card-text"),
+                                ],  className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 html.Br(),
                                 html.Br(),
                                 html.Br(),
@@ -233,7 +234,7 @@ def render_home_page():
                                         "The group has a market cap of R 232.85 million.",
                                         style={"color": "#4B49AC", "font-weight": "bold"}),
 
-                                ], className="card-text"),
+                                ],  className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 dbc.Button("View Details", id="btn-rex", color="custom", className="mt-3")
                             ]
                         ),
@@ -253,13 +254,13 @@ def render_home_page():
                                 html.P([
                                     "TFG is one of South Africa's chain-store groups with an internationally "
                                     "diverse portfolio consisting of 34 apparel and lifestyle retail brands "
-                                    "inclusive of Foschini, Jet, Sterns, American Swiss and @Home stores.",
+                                    "inclusive of Foschini, Jet, Sterns, American Swiss and @Home stores. ",
                                     html.Span("The group"
                                               "is the second largest in the industry with a market cap of R 46.13 "
                                               "billion.",
                                               style={"color": "#4B49AC", "font-weight": "bold"}),
 
-                                ], className="card-text"),
+                                ],  className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 dbc.Button("View Details", id="btn-tfg", color="custom", className="mt-3")
                             ]
                         ),
@@ -283,10 +284,10 @@ def render_home_page():
                                     "is a leading retailer of fashion clothing, footwear and homewear. The "
                                     "organisation was listed on the JSE in 1998. Truworths International brands "
                                     "and stores include Truworths, Truworths Man, Uzzi, Identity and Loads of "
-                                    "Living", html.Span("The group has a market cap of R 37.8 billion.",
+                                    "Living", html.Span(" The group has a market cap of R 37.8 billion.",
                                                         style={"color": "#4B49AC", "font-weight": "bold"}),
 
-                                ], className="card-text"),
+                                ],  className="card-text", style={"textAlign":"justify", "textJustify":"inter-word"}),
                                 dbc.Button("View Details", id="btn-truworths", color="custom", className="mt-3")
                             ]
                         ),
@@ -415,16 +416,15 @@ def render_org_page(org):
                 dbc.Card(
                     dbc.CardBody([
                         html.Div(
-                            dcc.Graph(id='gauge-chart', config={'displayModeBar':False}),
+                            dcc.Graph(id='gauge-chart', config={'displayModeBar': False}),
                             id='gauge_div'
                         ),
                         dbc.Tooltip("ROA measures the net income per asset employed. "
                                     "Industry benchmark ROA is 19.72 %.", target="gauge_div", placement="right")
                     ]), style={"backgroundColor": "#f8f9fa"}
                 ), width=6,
-            className="d-flex justify-content-center"
+                className="d-flex justify-content-center"
             ),
-            dbc.Col(width=3)
 
         ], className="mb-4 justify-content-center"),
         html.Div(id='selected-data', style={'display': 'none'}),
