@@ -255,7 +255,7 @@ def render_home_page():
                                     "TFG is one of South Africa's chain-store groups with an internationally "
                                     "diverse portfolio consisting of 34 apparel and lifestyle retail brands "
                                     "inclusive of Foschini, Jet, Sterns, American Swiss and @Home stores. ",
-                                    html.Span("The group"
+                                    html.Span("The group "
                                               "is the second largest in the industry with a market cap of R 46.13 "
                                               "billion.",
                                               style={"color": "#4B49AC", "font-weight": "bold"}),
@@ -351,7 +351,7 @@ def render_org_page(org):
                             html.Br(),
                             "Dividend Yield is  measure of final dividend on the share price.",
                             html.Span(' The benchmark Dividend Yield is 3.178.',
-                                      style={"color": "#4B49AC", "font-weight": "bold"}),
+                                      style={"font-weight": "bold"}),
                             ' A dividend yield higher than the benchmark '
                             'reflects a good '
                             'investment.'], target="bar-chart-div", placement="right", className="tooltip-custom"),
@@ -389,7 +389,7 @@ def render_org_page(org):
                             "organisation"
                             "can convert assets into cash.", html.Span('The benchmark for Current Ratio is 1.95 and '
                                                                        '1.18 for Quick Ratio.',
-                                                                       style={"color": "#4B49AC",
+                                                                       style={
                                                                               "font-weight": "bold"})],
                             target="area_div", placement="right"),
                     ]), style={"backgroundColor": "#f8f9fa"}
