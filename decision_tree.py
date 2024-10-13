@@ -65,8 +65,8 @@ def create_decision_tree_controls():
             placement="right"),
         html.Div(id="decision-table-container"),
         html.Br(),
-        html.P(" LOW : EPS lower than industry average. Take caution when investing.", style={'font-weight':'bold', 'color':'red'}),
-        html.P("HIGH : EPS higher than industry average. Investing is a good idea.", style={'font-weight':'bold', 'color':'green'})
+        html.P(" LOW : EPS lower than industry average.", style={'font-weight':'bold', 'color':'red'}),
+        html.P("HIGH : EPS higher than industry average.", style={'font-weight':'bold', 'color':'green'})
     ])
 
 

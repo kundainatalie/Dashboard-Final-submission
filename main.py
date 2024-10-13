@@ -252,7 +252,7 @@ def render_home_page():
                                     "TFG is one of South Africa's chain-store groups with an internationally "
                                     "diverse portfolio consisting of 34 apparel and lifestyle retail brands "
                                     "inclusive of Foschini, Jet, Sterns, American Swiss and @Home stores. ",
-                                    html.Span("The group"
+                                    html.Span("The group "
                                               "is the second largest in the industry with a market cap of R 46.13 "
                                               "billion.",
                                               style={"color": "#4B49AC", "font-weight": "bold"}),
@@ -342,13 +342,13 @@ def render_org_page(org):
                         dbc.Tooltip([
                             "Earnings Yield measures the return on the share price.",
                             html.Span("The Earnings Yield Industry Average"
-                                      " is 5.952.", style={"color": "#4B49AC", "font-weight": "bold"}),
+                                      " is 5.952.", style={"font-weight": "bold"}),
                             "  An EY higher than 5.952 reflects above average returns on the share price.",
                             html.Br(),
                             html.Br(),
                             "Dividend Yield is  measure of final dividend on the share price.",
                             html.Span(' The benchmark Dividend Yield is 3.178.',
-                                      style={"color": "#4B49AC", "font-weight": "bold"}),
+                                      style={"font-weight": "bold"}),
                             ' A dividend yield higher than the benchmark '
                             'reflects a good '
                             'investment.'], target="bar-chart-div", placement="right", className="tooltip-custom"),
@@ -386,7 +386,7 @@ def render_org_page(org):
                             "organisation "
                             "can convert assets into cash.", html.Span(' The benchmark for Current Ratio is 1.95 and '
                                                                        '1.18 for Quick Ratio.',
-                                                                       style={"color": "#4B49AC",
+                                                                       style={
                                                                               "font-weight": "bold"})],
                             target="area_div", placement="right"),
                     ]), style={"backgroundColor": "#f8f9fa"}
@@ -875,7 +875,7 @@ def update_graphs(json_data):
         template='plotly_white',
         height=450,
         margin=dict(t=50, b=50, l=50, r=50)
-        # Adjust top margin to give space for title
+
     )
 
     return bar_fig, donut_fig, area_fig, line_fig, roa_card_content, nav_card_content, pe_card_content, gauge_fig
